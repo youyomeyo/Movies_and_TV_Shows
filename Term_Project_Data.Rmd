@@ -1,0 +1,218 @@
+---
+title: "TV Shows and Movies"
+author: "Claire Yoon (ndq7xj), Tina Lin (tyl7jhm), Katie Tsai (nmu3tr)"
+date: "2023-02-08"
+output: 
+  html_document:
+    toc_depth: 3
+    toc: true
+    toc_float: true
+    theme: lumen
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Objectives:
+
+1) Explore topics and data for term project
+
+2) Practice Rmd skills
+
+Task:
+
+Submit an html rendering of an Rmd notebook that contains:
+
+1) Group member names
+
+2) Topic for term project
+
+3) 3-4 possible questions you would like to answers about your topic
+
+4) Possible data sources (with links) and possible variables within those data sources that can answer your questions. 
+
+Grading: 20 points
+
+10 points for topic & data source information
+
+10 points for Rmd syntax and style
+
+
+Let's start with how to format our font:
+
+**bold** Make this line bold
+
+**Make this bold**
+
+Make this line a Header 4
+
+#### Make this line a Header 4
+
+Insert a link on this line  
+
+[Google](google.com)
+
+Make this line italics  
+
+*Make this line italics* 
+
+Write something with superscript  
+
+e=mc^2^
+
+Write a block quote here
+
+>"Hello world" 
+
+Create an unordered list with 2 sub-items  
+
+* Item 1
+* Item 2
+  - sub-item 1
+  - sub-item 2
+  
+----
+
+Preview your work - how does it look?
+
+----
+
+Write a line in inline code  
+`df <- read.csv(data.csv)`
+
+---
+
+Write the same line of code in a code chunk
+
+```
+df <- read.csv(data.csv)
+```
+
+-or-
+
+```{r}
+x <- 5
+x
+```
+
+---
+
+In another code chunk, write code that will produce an output, but have that output suppressed.
+
+```{r, eval = FALSE}
+x <- 5
+x
+```
+
+
+---
+
+Import tidyverse without warnings being displayed. 
+```{r, message = FALSE}
+library(tidyverse)
+```
+
+---
+
+Create a table with your 2 favorite TV shows and what channel/streaming service they are on. Center the table and its contents
+
+TV show        | channel
+:-:            | :-:
+Emily in Paris | Netflix
+Big Little Lies| HBO
+
+----
+
+Display that data is an easy to read manner.  Remember these reports are often written for people who are not familiar with the data or processes.
+
+Print the built-in R dataframe iris. Without changing any settings, what do you think of the output in the html render?
+
+```{r}
+#iris
+iris
+```
+
+----
+
+Install the package kableExtra
+
+kableExtra Documentation:
+https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#Overview
+
+Load the package into this notebook. 
+
+```{r}
+library(kableExtra)
+```
+
+Using the kableExtra package, print the iris dataset with styling and a scroll box
+
+```{r}
+iris %>%
+  kbl() %>%
+  kable_styling("hover") %>%
+  scroll_box(width = "600px", height = "200px")
+```
+
+----
+
+Another package to handle table in Rmarkdown (among others) is DT
+
+----
+
+Let's create a table of contents (toc) for easy navigation. We'll need  head back to the YAML for configuration. 
+
+Documentation: https://bookdown.org/yihui/rmarkdown/html-document.html
+
+Create a toc that floats, uses the color scheme lumen, and recognizes headers to level 3
+
+
+Then:
+
+# Type a header 1
+
+## Type a header 2
+
+### Type a header 3
+
+Type a header 1
+
+Type a header 2
+
+Type a header 3
+
+Then: preview your document
+
+----
+
+## TV Shows and Movies {.tabset}
+
+### Netflix
+```{r}
+
+  
+```
+
+### Prime Video
+
+```{r}
+
+  
+```
+
+### Hulu 
+
+```{r}
+
+```
+
+### Disney+ {.tabset}
+
+```{r}
+
+  
+```
+
+
