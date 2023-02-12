@@ -15,7 +15,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<center> ![Streaming Services](/Users/lilactl/Downloads/Untitled design (2).png) </center>
+<center> ![Streaming Services](/Users/claire/Desktop/Spring2023/DS2003/Movies_and_TV_Shows/streaming_service.png) </center>
 
 ## Topic for Term Project
 
