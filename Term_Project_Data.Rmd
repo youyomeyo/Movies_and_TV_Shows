@@ -2,16 +2,23 @@
 title: "TV Shows and Movies"
 author: "Claire Yoon (ndq7xj), Tina Lin (tyl7jhm), Katie Tsai (nmu3tr)"
 date: "2023-02-12"
+output: 
+  html_document:
+    toc_depth: 3
+    toc: true
+    toc_float: true
+    theme: lumen
+    code_folding: show
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-**Topic for Term Project:**
+## Topic for Term Project
 
 For our term project, we are looking at the movies and TV shows in each streaming service using streaming service datasets. Additionally, we are looking at the trend of movies in general using IMDb dataset.
 
-**Questions:**
+## Questions
 
 1) Which streaming service has the most movies/tv shows?
 
@@ -21,7 +28,7 @@ For our term project, we are looking at the movies and TV shows in each streamin
 
 4) Which country has the most filmed movies?
 
-**Possible Data Sources:**
+## Possible Data Sources
 
 * [TV Shows on Different Streaming Services](https://www.kaggle.com/datasets/ruchi798/tv-shows-on-netflix-prime-video-hulu-and-disney)
 
