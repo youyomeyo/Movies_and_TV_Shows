@@ -46,3 +46,79 @@ For our term project, we are looking at the movies and TV shows in each streamin
 * [Disney+ Movies and TV Shows](https://www.kaggle.com/datasets/shivamb/disney-movies-and-tv-shows )
 
 * [Amazon Prime Movies and TV Shows](https://www.kaggle.com/datasets/shivamb/amazon-prime-movies-and-tv-shows )
+
+## Possible Variables on Datasets
+*To answer the questions we made, we need these variables*
+
+* `Each Streaming Service`
+* `Genre`
+* `Year`
+* `Country`
+
+```{r, message = FALSE}
+library(tidyverse)
+```
+
+
+```{r}
+# Load the datasets
+movie_streaming <- read.csv("~/Desktop/Spring2023/DS2003/Movies_and_TV_Shows/movies_streaming.csv")
+tv_shows_streaming <- read.csv("~/Desktop/Spring2023/DS2003/Movies_and_TV_Shows/tv_shows_streaming.csv")
+movie_IMDb <- read.csv("~/Desktop/Spring2023/DS2003/Movies_and_TV_Shows/imdb_top_1000.csv")
+```
+
+
+## General Overview of Datasets {.tabset}
+
+### Movies in Streaming Servieces
+* `Title`
+* `Year`
+* `Age`
+* `Rotten.Tomatoes`
+* `Netflix`
+* `Hulu`
+* `Prime.Video`
+* `Disney.`
+
+```{r}
+movie_streaming %>%
+  select(3:10) %>%
+  head(10)
+```
+
+### TV Shows in Streaming Services
+* `Title`
+* `Year`
+* `Age`
+* `Rotten.Tomatoes`
+* `Netflix`
+* `Hulu`
+* `Prime.Video`
+* `Disney.`
+
+```{r}
+tv_shows_streaming %>%
+  select(3:11) %>%
+  head(10)
+```
+
+### Movies in IMDb Top 1000 Dataset {.tabset}
+* `Series_Title`
+* `Released_Year`
+* `Runtime`
+* `Genre`
+* `Director`
+* `No_of_Votes`
+* `Gross`
+
+```{r}
+movie_IMDb %>%
+  select(2,3,4,5,6,10,15,16) %>%
+  head(10)
+```
+
+
+
+
+
+
