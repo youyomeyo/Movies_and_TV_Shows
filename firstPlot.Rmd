@@ -1,0 +1,6 @@
+```{r}
+# import packages
+library(tidyverse) 
+imdbRecent <- read.csv("action.csv")
+imdbOld <- read.csv("IMDB-Movie-Data.csv")
+```
