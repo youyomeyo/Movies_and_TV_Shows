@@ -1,0 +1,103 @@
+---
+title: "First Plot"
+author: "Claire Yoon (ndq7xj), Tina Lin (tyl7jhm), Katie Tsai (nmu3tr)"
+date: "2023-02-23"
+output: 
+  html_document:
+    toc_depth: 3
+    toc: true
+    toc_float: true
+    theme: cosmo
+    code_folding: show
+---
+
+## Questions for visualization:
+- Movie genre popularity over time
+- Highest grossing movies based on studio over time
+
+## Our Dataset:
+- IMDb movie data
+
+```{r}
+# Load packages
+library(tidyverse)
+library(skimr)
+
+# Load the dataset
+imdb <- read.csv("IMDB-Movie-Data.csv")
+
+# Separate movie genres because some movies contain multiple genres
+imdbClean <- imdb %>%
+  separate(Genre, c('Genre', 'Genre1', 'Genre2'), ',') 
+
+imdbCleanTest <- imdbClean %>%
+  pivot_longer(cols = c(3:5), names_to = 'Random', values_to = 'Genre') 
+
+imdbCleanNA <- na.omit(imdbCleanTest)
+imdbCleanNA
+
+new_imdb <- imdbCleanNA %>%
+  select(-1, -3, -5)
+
+View(new_imdb)
+```
+
+
+## Skim Data Set
+```{r}
+skim(new_imdb)
+```
+
+## Check Distributions of Continuous Variables
+
+```{r}
+ggplot(new_imdb, aes(Rating)) +
+  geom_histogram(bins = 200, fill = 'skyblue') + 
+  geom_vline(aes(xintercept = mean(Rating)), col = 'pink', linewidth = 1) +
+  geom_vline(aes(xintercept = median(Rating)), col = 'pink', linetype = 'dashed') +
+  labs(
+    title = 'Histogram of IMDb Rating',
+    caption = 'mean: solid line, median = dashed line'
+  ) +
+  theme_minimal()
+```
+
+## Check for outliers in continuous predictors
+
+```{r}
+ggplot(new_imdb, aes(Revenue..Millions.)) +
+  geom_boxplot(fill = 'yellow') + 
+  labs(
+    title = 'Boxplot of Revenue'
+  ) +
+  theme_minimal()
+```
+
+```{r}
+ggplot(new_imdb, aes(Votes)) +
+  geom_boxplot(fill = '#3bceac') + 
+  labs(
+    title = 'Boxplot of Votes'
+  ) +
+  theme_minimal()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,97 @@
+---
+title: "EDA"
+author: "Claire Yoon (ndq7xj)"
+date: "2023-02-22"
+output: html_document
+---
+
+## Load Libraries
+
+```{r, message = FALSE}
+library(tidyverse)
+library(skimr)
+library(pollster)
+library(kableExtra)
+```
+
+## Import Data
+
+```{r, message = FALSE}
+IMDb <- read.csv("~/Desktop/Spring2023/DS2003/Movies_and_TV_Shows/IMDB-Movie-Data.csv")
+```
+
+## Check Dataset
+
+```{r}
+head(IMDb)
+```
+
+## Skim Data Set
+```{r}
+skim(IMDb)
+```
+
+## Data Cleaning
+Delete unneeded variables
+```{r}
+IMDb <- IMDb %>%
+  select(-4, -6)
+  
+# get rid of missing NA rows
+new_IMDb <- IMDb[complete.cases(IMDb), ]
+
+head(new_IMDb)
+dim(new_IMDb)
+```
+
+## Check Distributions of Continuous Variables
+
+```{r}
+ggplot(new_IMDb, aes(Rating)) +
+  geom_histogram(bins = 200, fill = 'skyblue') + 
+  geom_vline(aes(xintercept = mean(Rating)), col = 'pink', linewidth = 1) +
+  geom_vline(aes(xintercept = median(Rating)), col = 'pink', linetype = 'dashed') +
+  labs(
+    title = 'Histogram of IMDb Rating',
+    caption = 'mean: solid line, median = dashed line'
+  ) +
+  theme_minimal()
+```
+
+## Check for outliers in continuous predictors
+
+```{r}
+ggplot(new_IMDb, aes(Revenue..Millions.)) +
+  geom_boxplot(fill = 'yellow') + 
+  labs(
+    title = 'Boxplot of Revenue'
+  ) +
+  theme_minimal()
+```
+
+```{r}
+ggplot(new_IMDb, aes(Votes)) +
+  geom_boxplot(fill = '#3bceac') + 
+  labs(
+    title = 'Boxplot of Votes'
+  ) +
+  theme_minimal()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

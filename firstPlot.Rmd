@@ -21,6 +21,8 @@ head(imdbOldClean)
 ```{r}
 library(tidyverse) 
 
+imdb <- read.csv("IMDB-Movie-Data.csv")
+
 imdb <- imdb %>%
   select(Genre, Year, Votes)
 
@@ -35,9 +37,14 @@ imdbCleanTest <- imdbCleanTest %>%
   select(Genre, Year, Votes)
 
 imdbCleanNA <- na.omit(imdbCleanTest)
+<<<<<<< HEAD
 
 ```
 
 ```{r}
 ggplot(imdbCleanNA, aes(x = as.character(Year), y = Votes, fill = Genre)) + geom_bar(stat = "identity") + labs(title = "Number of Votes for Each Genre Per Year", x = "Year") + theme_minimal()
 ```
+=======
+imdbCleanNA
+```
+>>>>>>> 660c3e3 (First_Plot_Trial)
