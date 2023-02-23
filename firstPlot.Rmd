@@ -1,6 +1,37 @@
 ```{r}
 # import packages
 library(tidyverse) 
-imdbRecent <- read.csv("action.csv")
-imdbOld <- read.csv("IMDB-Movie-Data.csv")
+#imdbRecent <- read.csv("action.csv")
+#imdbOld <- read.csv("IMDB-Movie-Data.csv")
+
+imdbRecentClean = imdbRecent[c("year","genre")]
+
+imdbRecentClean
+str(imdbRecentClean)
+example_clean <- example %>%
+  pivot_wider(names_from = variable, values_from = estimate)
+
+example_clean
+str(imdbRecentClean)
+imdbOldClean = imdbOld[c("Year","Genre")]
+head(imdbOldClean)
+
+```
+
+```{r}
+library(tidyverse) 
+
+imdb <- imdb %>%
+  select(Genre, Year, Votes)
+
+imdbClean <- imdb %>%
+  separate(Genre, c('Genre', 'Genre1', 'Genre2'), ',') 
+
+imdbCleanTest <- imdbClean %>%
+  pivot_longer(cols = c(1:3), names_to = 'Random', values_to = 'Genre') 
+
+
+imdbCleanTest <- imdbCleanTest %>%
+  select(Genre, Year, Votes)
+
 ```
