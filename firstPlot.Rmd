@@ -34,6 +34,8 @@ imdbCleanTest <- imdbClean %>%
 imdbCleanTest <- imdbCleanTest %>%
   select(Genre, Year, Votes)
 
+imdbCleanNA <- na.omit(imdbCleanTest)
+
 ```
 
 ```{r}
